@@ -7,7 +7,7 @@ Created on Fri Apr 29 15:03:03 2022
 
 import string
 
-inputString = input(" text: ")
+inputString = open("text.txt", encoding='utf-8').read()
 inputString = inputString.upper()
 stringByWords = inputString.split()
 
@@ -105,9 +105,13 @@ for word in stringByWords:
     crypted = crypt_word(word)
     result.append(crypted)
 
+crypted_text = str(result)
+encode = open("encode.txt",  'w', encoding='utf-8')
+encode.write(crypted_text)
+
 result2 = list()
 for cryptedWord in result:
     uncr = decrypt_word(cryptedWord)
-    print(uncr)
+    #print(uncr)
     result2.append(uncr)
-    
+   
